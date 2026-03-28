@@ -1,0 +1,14 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B3477F"/>
+      <stop offset="100%" stop-color="#6F5CA8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="110" cy="110" r="104" fill="#FFF8FB" stroke="#EBCFE0" stroke-width="4"/>
+  <path d="M110 44C119 63 136 77 156 86C137 95 120 110 110 131C100 110 83 95 64 86C84 77 101 63 110 44Z" fill="url(#g1)"/>
+  <path d="M110 76C117 90 130 100 145 107C130 113 117 125 110 141C103 125 90 113 75 107C90 100 103 90 110 76Z" fill="#C979A2" opacity="0.86"/>
+  <circle cx="110" cy="107" r="8" fill="#FFF"/>
+  <text x="110" y="170" text-anchor="middle" fill="#4F3A73" font-family="Georgia, serif" font-size="16" font-weight="700">Lasting Tribute</text>
+  <text x="110" y="188" text-anchor="middle" fill="#6B5A89" font-family="Georgia, serif" font-size="12">Company</text>
+</svg>

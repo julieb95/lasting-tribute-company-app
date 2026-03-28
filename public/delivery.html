@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribute Delivery</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Tribute Video Delivery</h1>
+      <p id="meta"></p>
+      <video id="player" controls width="100%"></video>
+      <p><a id="downloadLink" class="button" download>Download Tribute Video</a></p>
+      <p class="small">This secure link can be used for service playback and family keepsake download.</p>
+    </section>
+  </main>
+
+  <script>
+    async function init() {
+      const deliveryId = location.pathname.split('/').pop();
+      const token = new URLSearchParams(location.search).get('token');
+
+      if (!token) {
+        document.body.innerHTML = '<main class="container"><section class="card"><h2>Missing secure token.</h2></section></main>';
+        return;
+      }
+
+      const resp = await fetch(`/api/deliveries/${deliveryId}?token=${encodeURIComponent(token)}`);
+      if (!resp.ok) {
+        document.body.innerHTML = '<main class="container"><section class="card"><h2>Delivery link invalid or expired.</h2></section></main>';
+        return;
+      }
+
+      const data = await resp.json();
+      document.getElementById('meta').textContent = `Order: ${data.orderId}${data.funeralHomeName ? ' • Funeral Home: ' + data.funeralHomeName : ''} • Expires: ${new Date(data.expiresAt).toLocaleString()}`;
+
+      const player = document.getElementById('player');
+      player.src = data.secureVideoUrl;
+
+      const dl = document.getElementById('downloadLink');
+      dl.href = data.secureVideoUrl;
+      dl.textContent = 'Download Video';
+    }
+    init();
+  </script>
+</body>
+</html>

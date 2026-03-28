@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lasting Tribute Company</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img class="brand-logo" src="/logo.svg" alt="Lasting Tribute Company logo" />
+      <div class="petals" aria-hidden="true">✿ ❀ ✾ ❋</div>
+      <h1>Lasting Tribute Company</h1>
+      <p class="lead">Personalized 4-minute tribute song + video for funeral and celebration of life services.</p>
+      <p class="scent-line">A floral, peaceful presentation designed for remembrance, comfort, and love.</p>
+      <div class="price">Flat Rate: $299.00</div>
+      <a class="button" href="#auth-section">Get Started</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Trusted Tribute Partner for Funeral Homes</h2>
+      <p>
+        We partner with funeral homes to create personalized song and video tributes that honor each loved one’s story.
+        Every piece is crafted with care and delivered in a format ready for service playback and family keepsake download.
+      </p>
+      <ol>
+        <li>Funeral home creates account and submits tribute order (up to 40 photos).</li>
+        <li>Payment is completed via PayPal.</li>
+        <li>Julie Brown creates and uploads the final tribute video.</li>
+        <li>Funeral home receives a private secure watch/download link for service playback and keepsake access.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Professional Features Included</h2>
+      <ul>
+        <li>4-minute personalized song + video package</li>
+        <li>Up to 40 family photos</li>
+        <li>Special names and nicknames woven into tribute story</li>
+        <li>Highlights and key life moments included in script direction</li>
+        <li>Partner discount consideration for recurring funeral home volume</li>
+      </ul>
+    </section>
+
+    <section class="card" id="auth-section">
+      <h2>Funeral Home Account</h2>
+      <p id="authState" class="small">Checking login status...</p>
+
+      <div class="grid">
+        <form id="signupForm">
+          <h3>Create Account</h3>
+          <label>Funeral Home Name* <input name="funeralHomeName" required /></label>
+          <label>Contact Name* <input name="contactName" required /></label>
+          <label>Business Email* <input type="email" name="email" required /></label>
+          <label>Phone <input name="phone" /></label>
+          <label>Password* <input type="password" name="password" minlength="8" required /></label>
+          <button class="button" type="submit">Sign Up</button>
+        </form>
+
+        <form id="loginForm">
+          <h3>Login</h3>
+          <label>Email* <input type="email" name="email" required /></label>
+          <label>Password* <input type="password" name="password" required /></label>
+          <button class="button" type="submit">Login</button>
+          <button id="logoutBtn" class="button ghost hidden" type="button">Logout</button>
+        </form>
+      </div>
+      <div id="authResult" class="result hidden"></div>
+    </section>
+
+    <section class="card hidden" id="order-card">
+      <h2>Submit Tribute Order</h2>
+      <form id="tributeForm" enctype="multipart/form-data">
+        <label>Loved One's Full Name* <input name="lovedOneName" required /></label>
+        <label>Special Names / Nicknames to include in song
+          <textarea name="specialNames" rows="2" placeholder="Example: Nana Rose, Coach Mike"></textarea>
+        </label>
+
+        <label>Highlights / Story Notes for the song and video
+          <textarea name="highlights" rows="5" placeholder="Share personality, milestones, memories, and key moments."></textarea>
+        </label>
+
+        <label>Partner Discount Request (for high-volume funeral homes)
+          <textarea name="partnerDiscount" rows="2" placeholder="Tell us your monthly service volume."></textarea>
+        </label>
+
+        <label>Package
+          <input name="packageType" value="4-minute personalized tribute song + video" readonly />
+        </label>
+
+        <label>Upload Photos (max 40)
+          <input id="photos" type="file" name="photos" multiple accept="image/*" />
+        </label>
+        <p id="photoCounter">0 / 40 photos selected</p>
+
+        <button class="button" type="submit">Submit Order</button>
+      </form>
+
+      <div id="orderResult" class="result hidden"></div>
+    </section>
+
+    <section class="card">
+      <h2>PayPal Payment</h2>
+      <p>Package fee: <strong>$299.00</strong></p>
+      <a class="button"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=rangerbleau11%40gmail.com&item_name=Lasting%20Tribute%20Company%20-%20Tribute%20Song%20and%20Video%20Package&amount=299.00&currency_code=USD">
+        Pay $299 with PayPal
+      </a>
+      <p class="small">PayPal account receiving payment: rangerbleau11@gmail.com</p>
+      <p class="small">Business contact email: lastingtributecompany@gmail.com</p>
+    </section>
+
+    <section class="card">
+      <h2>Upload Final Tribute Video (Admin)</h2>
+      <p>Use this section after customer purchase to upload completed tribute and generate a secure private link.</p>
+      <form id="deliveryForm" enctype="multipart/form-data">
+        <label>Admin Upload Key* <input name="adminKey" required /></label>
+        <label>Order ID* <input name="orderId" required /></label>
+        <label>Funeral Home Name <input name="funeralHomeName" /></label>
+        <label>Internal Note <textarea name="note" rows="2"></textarea></label>
+        <label>Final Video File* <input type="file" name="video" accept="video/*" required /></label>
+        <button class="button" type="submit">Upload and Generate Secure Link</button>
+      </form>
+      <div id="deliveryResult" class="result hidden"></div>
+    </section>
+
+    <section class="card contact">
+      <h2>Contact</h2>
+      <p><strong>Julie Brown</strong></p>
+      <p>Phone: 448 448 6491</p>
+      <p>Email: lastingtributecompany@gmail.com</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
